@@ -1,7 +1,6 @@
 var AppRouter = Backbone.Router.extend({
 	routes: {
-		"": "home",
-		"example": "example"
+		"": "home"
 	},
 
 	initialize: function() {
@@ -10,10 +9,6 @@ var AppRouter = Backbone.Router.extend({
 
 	home: function() {
 		this.changePage(new HomeView());
-	},
-
-	example: function() {
-		this.changePage(new ExampleView());
 	},
 
 	changePage: function (page) {
@@ -32,10 +27,7 @@ var AppRouter = Backbone.Router.extend({
 
 $(document).ready(function() {	
 
-	// Initialize collections
-	window.groupCollection = new GroupCollection();
-	groupCollection.fetch();
-
 	var app = new AppRouter();
 	Backbone.history.start();
+	
 });
