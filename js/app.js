@@ -13,7 +13,7 @@ var AppRouter = Backbone.Router.extend({
 	},
 
 	example: function() {
-		this.changePage(new ExampleView({model: groupCollection}));
+		this.changePage(new ExampleView());
 	},
 
 	changePage: function (page) {
@@ -33,7 +33,8 @@ var AppRouter = Backbone.Router.extend({
 $(document).ready(function() {	
 
 	// Initialize collections
-	window.groupCollection = new GroupCollection([{_id: "1", name: "Test"}, {_id: "2", name: "Test"}]);
+	window.groupCollection = new GroupCollection();
+	groupCollection.fetch();
 
 	var app = new AppRouter();
 	Backbone.history.start();
